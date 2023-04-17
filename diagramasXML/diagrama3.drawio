@@ -1,0 +1,34 @@
+<mxfile>
+  <diagram>
+    <mxGraphModel>
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="Elaborar diagrama TO-BE" style="shape=process" parent="1">
+          <mxGeometry x="110" y="60" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="3" value="Leer archivo desde recurso compartido/FTP" style="shape=parallelogram" parent="1">
+          <mxGeometry x="110" y="160" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="4" value="Cargar archivo a base de datos mediante ETL" style="shape=parallelogram" parent="1">
+          <mxGeometry x="420" y="160" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="Programar JOB para procesamiento automático de información" style="shape=parallelogram" parent="1">
+          <mxGeometry x="250" y="280" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="6" value="Datos procesados en varias tablas" style="shape=parallelogram" parent="1">
+          <mxGeometry x="250" y="400" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="Navegador" style="shape=mxgraph.basic.rectangle;fillColor=#008000" parent="1">
+          <mxGeometry x="590" y="280" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="8" value="Tomar datos mediante SP" style="shape=parallelogram" parent="1">
+          <mxGeometry x="420" y="400" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="9" value="Visualizar indicadores" style="shape=mxgraph.basic.rectangle;fillColor=#008000" parent="1">
+          <mxGeometry x="590" y="400" width="120" height="60" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

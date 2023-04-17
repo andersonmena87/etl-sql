@@ -1,0 +1,80 @@
+<mxfile host="www.draw.io" modified="2023-04-14T18:00:00.000Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36" etag="nGcvp63d34P7zLkIW9gT" version="14.6.9" type="device">
+  <diagram id="g1cf7ffc3e3d8ae7c">
+    <mxGraphModel dx="1542" dy="728" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- AS-IS -->
+        <mxCell id="g1asIs" value="AS-IS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFC000;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="30" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1ExternalSystem" value="Sistema Externo de Encuestas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1FTP" value="Recurso compartido o FTP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="120" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1Excel" value="Archivo Excel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="120" width="100" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1ManualProcessing" value="Procesamiento manual en Excel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="250" width="200" height="60" as="geometry"/>
+        </mxCell>
+		<mxCell id="g1ProjectsArea" value="Área de Proyectos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="250" width="140" height="60" as="geometry"/>
+        </mxCell>
+		
+		<!-- TO-BE -->
+	<mxCell id="g1ToBe" value="TO-BE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#70AD47;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+      <mxGeometry x="480" y="30" width="140" height="60" as="geometry" />
+    </mxCell>
+	
+	 <mxCell id="g1ExternalSystem2" value="Sistema Externo de Encuestas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+      <mxGeometry x="40" y="120" width="200" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="g1FTP2" value="Recurso compartido o FTP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+      <mxGeometry x="320" y="120" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="g1Excel2" value="Archivo Excel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+      <mxGeometry x="540" y="120" width="100" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="g1ManualProcessing2" value="Procesamiento manual en Excel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+      <mxGeometry x="740" y="120" width="240" height="60" as="geometry" />
+    </mxCell>
+	
+	<mxCell id="g1DB" value="Base de Datos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+	
+	</mxCell>
+        <mxCell id="g1ETL" value="ETL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="270" width="100" height="60" as="geometry"/>
+        </mxCell>
+		
+		 <mxCell id="g1Job" value="JOB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+      <mxGeometry x="550" y="270" width="100" height="60" as="geometry"/>
+    </mxCell>
+	
+    <mxCell id="g1Browser" value="Navegador" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+      <mxGeometry x="520" y="420" width="140" height="60" as="geometry"/>
+    </mxCell>
+	
+    <mxCell id="g1Indicators" value="Indicadores" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+      <mxGeometry x="270" y="420" width="140" height="60" as="geometry"/>
+    </mxCell>
+	
+    <mxCell id="g1Tables" value="Tablas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+      <mxGeometry x="400" y="180" width="100" height="60" as="geometry"/>
+    </mxCell>
+	
+    <mxCell id="g1Database" value="Base de Datos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+      <mxGeometry x="330" y="330" width="140" height="60" as="geometry"/>
+    </mxCell>
+	
+    <mxCell id="g1ExcelJob" value="JOB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFBFBF;fontColor=#000000;gradientColor=none;strokeWidth=2;glass=0;" vertex="1" parent="1">
+      <mxGeometry x="710" y="120" width="100" height="60" as="geometry"/>
+    </mxCell>
+	
+	</root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

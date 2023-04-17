@@ -1,0 +1,28 @@
+<mxfile>
+  <diagram>
+    <mxGraphModel>
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="Elaborar diagrama AS-IS" style="shape=process" parent="1">
+          <mxGeometry x="110" y="60" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="3" value="Descargar información de sistema externo" style="shape=parallelogram" parent="1">
+          <mxGeometry x="110" y="160" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="4" value="Guardar información en recurso compartido/FTP" style="shape=parallelogram" parent="1">
+          <mxGeometry x="360" y="160" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="Conectar al repositorio y procesar manualmente" style="shape=parallelogram" parent="1">
+          <mxGeometry x="250" y="280" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="6" value="Generar varias hojas con indicadores" style="shape=parallelogram" parent="1">
+          <mxGeometry x="250" y="400" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="Excel" style="shape=document" parent="1">
+          <mxGeometry x="590" y="280" width="60" height="60" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

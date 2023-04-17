@@ -1,0 +1,1499 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2023 11:10:48 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="6N08PQ3"
+  DTS:CreatorName="ITCOL\andersonm"
+  DTS:DTSID="{84C15C60-F558-431D-B171-134D901382BD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5131.0"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{2FA9551C-7CEB-43C1-8D4A-ED155BA401B0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[6N08PQ3\MSSQLSERVER1.Encuestas]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{ECFAF681-736C-4052-81C2-F6F4A9847676}"
+      DTS:ObjectName="6N08PQ3\MSSQLSERVER1.Encuestas">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=6N08PQ3\MSSQLSERVER1;Initial Catalog=Encuestas;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{ECFAF681-736C-4052-81C2-F6F4A9847676}6N08PQ3\MSSQLSERVER1.Encuestas;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DatosPrueba]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4AA433B6-B7F7-435A-A04A-3786414B4E53}"
+      DTS:ObjectName="DatosPrueba">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Desarrollos\ditcher-neira\DatosPrueba.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{5D9BBAC6-B746-4A8E-8CBA-364A91DCDB8A}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Desarrollos\ditcher-neira\Datos.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Encuestas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{5AD8C152-2634-4858-AAE6-77B885041349}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Encuestas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Encuestas\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[Encuesta]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Encuestas\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[6N08PQ3\MSSQLSERVER1.Encuestas]"
+                  connectionManagerRefId="Package.ConnectionManagers[6N08PQ3\MSSQLSERVER1.Encuestas]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[SubjectID]"
+                      cachedDataType="r8"
+                      cachedName="SubjectID"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SubjectID]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[SubjectID]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DPEncargado]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DPEncargado"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DPEncargado]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[DPEncargado]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[EstadoTicket]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EstadoTicket"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[EstadoTicket]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[EstadoTicket]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[JobId]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="JobId"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[JobId]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[JobId]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Gerente]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Gerente"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Gerente]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Gerente]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Muestra]"
+                      cachedDataType="r8"
+                      cachedName="Muestra"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Muestra]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Muestra]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Tecnica]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Tecnica"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tecnica]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tecnica]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Plataforma]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Plataforma"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Plataforma]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Plataforma]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Programa]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Programa"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Programa]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Programa]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Entrevistador]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Entrevistador"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Entrevistador]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Entrevistador]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Dia]"
+                      cachedDataType="r8"
+                      cachedName="Dia"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Dia]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Dia]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Mes]"
+                      cachedDataType="r8"
+                      cachedName="Mes"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Mes]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Mes]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Ano]"
+                      cachedDataType="r8"
+                      cachedName="Ano"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Ano]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ano]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Test]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Test"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Test]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Test]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[VisitStart]"
+                      cachedDataType="date"
+                      cachedName="VisitStart"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[VisitStart]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VisitStart]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[VisitEnd]"
+                      cachedDataType="date"
+                      cachedName="VisitEnd"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[VisitEnd]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VisitEnd]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IsFiltered]"
+                      cachedDataType="r8"
+                      cachedName="IsFiltered"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IsFiltered]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[IsFiltered]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Cancelada]"
+                      cachedDataType="r8"
+                      cachedName="Cancelada"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cancelada]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Cancelada]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Expirada]"
+                      cachedDataType="r8"
+                      cachedName="Expirada"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Expirada]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Expirada]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Validadas]"
+                      cachedDataType="r8"
+                      cachedName="Validadas"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Validadas]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Validadas]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[GPSValidation]"
+                      cachedDataType="r8"
+                      cachedName="GPSValidation"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[GPSValidation]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[GPSValidation]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Descartadas]"
+                      cachedDataType="r8"
+                      cachedName="Descartadas"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descartadas]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Descartadas]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ClientDuration]"
+                      cachedDataType="date"
+                      cachedName="ClientDuration"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ClientDuration]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ClientDuration]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[TiempoEntreEncuesta]"
+                      cachedDataType="r8"
+                      cachedName="TiempoEntreEncuesta"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TiempoEntreEncuesta]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TiempoEntreEncuesta]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[DuracionMinutos]"
+                      cachedDataType="r8"
+                      cachedName="DuracionMinutos"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DuracionMinutos]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[DuracionMinutos]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IncidenciaFiltro]"
+                      cachedDataType="r8"
+                      cachedName="IncidenciaFiltro"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IncidenciaFiltro]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[IncidenciaFiltro]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CuentasClave]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CuentasClave"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CuentasClave]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CuentasClave]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[QualityControlFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="QualityControlFlag"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[QualityControlFlag]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[QualityControlFlag]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FechaInicioEstimada]"
+                      cachedDataType="date"
+                      cachedName="FechaInicioEstimada"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaInicioEstimada]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FechaInicioEstimada]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[FechaFinEstimada]"
+                      cachedDataType="date"
+                      cachedName="FechaFinEstimada"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaFinEstimada]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FechaFinEstimada]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Id propuesta]"
+                      cachedDataType="r8"
+                      cachedName="Id propuesta"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdPropuesta]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Id propuesta]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[País de ejecución]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="País de ejecución"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PaisEjecucion]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[País de ejecución]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[País de venta]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="País de venta"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PaisVenta]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[País de venta]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Tipo de estudio]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Tipo de estudio"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoEstudio]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tipo de estudio]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Dia de carga]"
+                      cachedDataType="date"
+                      cachedName="Dia de carga"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiaCarga]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Dia de carga]" />
+                    <inputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Estatus Encuesta]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Estatus Encuesta"
+                      externalMetadataColumnId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[EstatusEncuesta]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Estatus Encuesta]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[SubjectID]"
+                      dataType="r8"
+                      name="SubjectID" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DPEncargado]"
+                      dataType="wstr"
+                      length="255"
+                      name="DPEncargado" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[EstadoTicket]"
+                      dataType="wstr"
+                      length="255"
+                      name="EstadoTicket" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[JobId]"
+                      dataType="wstr"
+                      length="255"
+                      name="JobId" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Gerente]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gerente" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Muestra]"
+                      dataType="r8"
+                      name="Muestra" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Tecnica]"
+                      dataType="wstr"
+                      length="255"
+                      name="Tecnica" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Plataforma]"
+                      dataType="wstr"
+                      length="255"
+                      name="Plataforma" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Programa]"
+                      dataType="wstr"
+                      length="255"
+                      name="Programa" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Entrevistador]"
+                      dataType="wstr"
+                      length="255"
+                      name="Entrevistador" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Dia]"
+                      dataType="r8"
+                      name="Dia" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Mes]"
+                      dataType="r8"
+                      name="Mes" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Ano]"
+                      dataType="r8"
+                      name="Ano" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Test]"
+                      dataType="wstr"
+                      length="255"
+                      name="Test" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[VisitStart]"
+                      dataType="dbTimeStamp"
+                      name="VisitStart" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[VisitEnd]"
+                      dataType="dbTimeStamp"
+                      name="VisitEnd" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[QualityControlFlag]"
+                      dataType="wstr"
+                      length="255"
+                      name="QualityControlFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IsFiltered]"
+                      dataType="r8"
+                      name="IsFiltered" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cancelada]"
+                      dataType="r8"
+                      name="Cancelada" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Expirada]"
+                      dataType="r8"
+                      name="Expirada" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Validadas]"
+                      dataType="r8"
+                      name="Validadas" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[GPSValidation]"
+                      dataType="r8"
+                      name="GPSValidation" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descartadas]"
+                      dataType="r8"
+                      name="Descartadas" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ClientDuration]"
+                      dataType="dbTimeStamp"
+                      name="ClientDuration" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TiempoEntreEncuesta]"
+                      dataType="r8"
+                      name="TiempoEntreEncuesta" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DuracionMinutos]"
+                      dataType="r8"
+                      name="DuracionMinutos" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IncidenciaFiltro]"
+                      dataType="r8"
+                      name="IncidenciaFiltro" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CuentasClave]"
+                      dataType="wstr"
+                      length="255"
+                      name="CuentasClave" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaInicioEstimada]"
+                      dataType="dbTimeStamp"
+                      name="FechaInicioEstimada" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaFinEstimada]"
+                      dataType="dbTimeStamp"
+                      name="FechaFinEstimada" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdPropuesta]"
+                      dataType="r8"
+                      name="IdPropuesta" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PaisEjecucion]"
+                      dataType="wstr"
+                      length="255"
+                      name="PaisEjecucion" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PaisVenta]"
+                      dataType="wstr"
+                      length="255"
+                      name="PaisVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[TipoEstudio]"
+                      dataType="wstr"
+                      length="255"
+                      name="TipoEstudio" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DiaCarga]"
+                      dataType="dbTimeStamp"
+                      name="DiaCarga" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[EstatusEncuesta]"
+                      dataType="wstr"
+                      length="255"
+                      name="EstatusEncuesta" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Encuestas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Encuestas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Encuestas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Encuestas\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Encuestas\Origen de Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Origen de Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Encuestas$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Encuestas\Origen de Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[SubjectID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[SubjectID]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[SubjectID]"
+                      name="SubjectID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[DPEncargado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[DPEncargado]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[DPEncargado]"
+                      name="DPEncargado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[EstadoTicket]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[EstadoTicket]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[EstadoTicket]"
+                      name="EstadoTicket"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[JobId]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[JobId]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[JobId]"
+                      name="JobId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Id propuesta]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Id propuesta]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Id propuesta]"
+                      name="Id propuesta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Gerente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Gerente]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Gerente]"
+                      name="Gerente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Muestra]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Muestra]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Muestra]"
+                      name="Muestra"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[País de ejecución]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[País de ejecución]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[País de ejecución]"
+                      name="País de ejecución"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[País de venta]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[País de venta]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[País de venta]"
+                      name="País de venta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tipo de estudio]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Tipo de estudio]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tipo de estudio]"
+                      name="Tipo de estudio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tecnica]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Tecnica]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Tecnica]"
+                      name="Tecnica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Plataforma]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Plataforma]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Plataforma]"
+                      name="Plataforma"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FechaInicioEstimada]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FechaInicioEstimada]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FechaInicioEstimada]"
+                      name="FechaInicioEstimada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FechaFinEstimada]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FechaFinEstimada]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FechaFinEstimada]"
+                      name="FechaFinEstimada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Programa]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Programa]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Programa]"
+                      name="Programa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Entrevistador]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Entrevistador]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Entrevistador]"
+                      name="Entrevistador"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Dia de carga]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Dia de carga]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Dia de carga]"
+                      name="Dia de carga"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Dia]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Dia]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Dia]"
+                      name="Dia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Mes]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Mes]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Mes]"
+                      name="Mes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ano]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Ano]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ano]"
+                      name="Ano"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Estatus Encuesta]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Estatus Encuesta]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Estatus Encuesta]"
+                      name="Estatus Encuesta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Test]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Test]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Test]"
+                      name="Test"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VisitStart]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[VisitStart]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VisitStart]"
+                      name="VisitStart"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VisitEnd]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[VisitEnd]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VisitEnd]"
+                      name="VisitEnd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[QualityControlFlag]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[QualityControlFlag]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[QualityControlFlag]"
+                      name="QualityControlFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[IsFiltered]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[IsFiltered]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[IsFiltered]"
+                      name="IsFiltered"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Cancelada]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Cancelada]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Cancelada]"
+                      name="Cancelada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Expirada]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Expirada]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Expirada]"
+                      name="Expirada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Validadas]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Validadas]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Validadas]"
+                      name="Validadas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[GPSValidation]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[GPSValidation]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[GPSValidation]"
+                      name="GPSValidation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Descartadas]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Descartadas]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Descartadas]"
+                      name="Descartadas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ClientDuration]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[ClientDuration]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[ClientDuration]"
+                      name="ClientDuration"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TiempoEntreEncuesta]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TiempoEntreEncuesta]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TiempoEntreEncuesta]"
+                      name="TiempoEntreEncuesta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[DuracionMinutos]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[DuracionMinutos]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[DuracionMinutos]"
+                      name="DuracionMinutos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[IncidenciaFiltro]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[IncidenciaFiltro]"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[IncidenciaFiltro]"
+                      name="IncidenciaFiltro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CuentasClave]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CuentasClave]"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CuentasClave]"
+                      name="CuentasClave"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[SubjectID]"
+                      dataType="r8"
+                      name="SubjectID" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[DPEncargado]"
+                      dataType="wstr"
+                      length="255"
+                      name="DPEncargado" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[EstadoTicket]"
+                      dataType="wstr"
+                      length="255"
+                      name="EstadoTicket" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[JobId]"
+                      dataType="wstr"
+                      length="255"
+                      name="JobId" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Id propuesta]"
+                      dataType="r8"
+                      name="Id propuesta" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Gerente]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gerente" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Muestra]"
+                      dataType="r8"
+                      name="Muestra" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[País de ejecución]"
+                      dataType="wstr"
+                      length="255"
+                      name="País de ejecución" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[País de venta]"
+                      dataType="wstr"
+                      length="255"
+                      name="País de venta" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Tipo de estudio]"
+                      dataType="wstr"
+                      length="255"
+                      name="Tipo de estudio" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Tecnica]"
+                      dataType="wstr"
+                      length="255"
+                      name="Tecnica" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Plataforma]"
+                      dataType="wstr"
+                      length="255"
+                      name="Plataforma" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FechaInicioEstimada]"
+                      dataType="date"
+                      name="FechaInicioEstimada" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FechaFinEstimada]"
+                      dataType="date"
+                      name="FechaFinEstimada" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Programa]"
+                      dataType="wstr"
+                      length="255"
+                      name="Programa" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Entrevistador]"
+                      dataType="wstr"
+                      length="255"
+                      name="Entrevistador" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Dia de carga]"
+                      dataType="date"
+                      name="Dia de carga" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Dia]"
+                      dataType="r8"
+                      name="Dia" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Mes]"
+                      dataType="r8"
+                      name="Mes" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Ano]"
+                      dataType="r8"
+                      name="Ano" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Estatus Encuesta]"
+                      dataType="wstr"
+                      length="255"
+                      name="Estatus Encuesta" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Test]"
+                      dataType="wstr"
+                      length="255"
+                      name="Test" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[VisitStart]"
+                      dataType="date"
+                      name="VisitStart" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[VisitEnd]"
+                      dataType="date"
+                      name="VisitEnd" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[QualityControlFlag]"
+                      dataType="wstr"
+                      length="255"
+                      name="QualityControlFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[IsFiltered]"
+                      dataType="r8"
+                      name="IsFiltered" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Cancelada]"
+                      dataType="r8"
+                      name="Cancelada" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Expirada]"
+                      dataType="r8"
+                      name="Expirada" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Validadas]"
+                      dataType="r8"
+                      name="Validadas" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[GPSValidation]"
+                      dataType="r8"
+                      name="GPSValidation" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Descartadas]"
+                      dataType="r8"
+                      name="Descartadas" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[ClientDuration]"
+                      dataType="date"
+                      name="ClientDuration" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TiempoEntreEncuesta]"
+                      dataType="r8"
+                      name="TiempoEntreEncuesta" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[DuracionMinutos]"
+                      dataType="r8"
+                      name="DuracionMinutos" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[IncidenciaFiltro]"
+                      dataType="r8"
+                      name="IncidenciaFiltro" />
+                    <externalMetadataColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CuentasClave]"
+                      dataType="wstr"
+                      length="255"
+                      name="CuentasClave" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[SubjectID]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[SubjectID]"
+                      name="SubjectID" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[DPEncargado]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[DPEncargado]"
+                      name="DPEncargado" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[EstadoTicket]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[EstadoTicket]"
+                      name="EstadoTicket" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[JobId]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[JobId]"
+                      name="JobId" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Id propuesta]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Id propuesta]"
+                      name="Id propuesta" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Gerente]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Gerente]"
+                      name="Gerente" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Muestra]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Muestra]"
+                      name="Muestra" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[País de ejecución]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[País de ejecución]"
+                      name="País de ejecución" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[País de venta]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[País de venta]"
+                      name="País de venta" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Tipo de estudio]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Tipo de estudio]"
+                      name="Tipo de estudio" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Tecnica]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Tecnica]"
+                      name="Tecnica" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Plataforma]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Plataforma]"
+                      name="Plataforma" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FechaInicioEstimada]"
+                      dataType="date"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FechaInicioEstimada]"
+                      name="FechaInicioEstimada" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FechaFinEstimada]"
+                      dataType="date"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FechaFinEstimada]"
+                      name="FechaFinEstimada" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Programa]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Programa]"
+                      name="Programa" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Entrevistador]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Entrevistador]"
+                      name="Entrevistador" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Dia de carga]"
+                      dataType="date"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Dia de carga]"
+                      name="Dia de carga" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Dia]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Dia]"
+                      name="Dia" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Mes]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Mes]"
+                      name="Mes" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Ano]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Ano]"
+                      name="Ano" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Estatus Encuesta]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Estatus Encuesta]"
+                      name="Estatus Encuesta" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Test]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Test]"
+                      name="Test" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[VisitStart]"
+                      dataType="date"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[VisitStart]"
+                      name="VisitStart" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[VisitEnd]"
+                      dataType="date"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[VisitEnd]"
+                      name="VisitEnd" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[QualityControlFlag]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[QualityControlFlag]"
+                      name="QualityControlFlag" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[IsFiltered]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[IsFiltered]"
+                      name="IsFiltered" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Cancelada]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Cancelada]"
+                      name="Cancelada" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Expirada]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Expirada]"
+                      name="Expirada" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Validadas]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Validadas]"
+                      name="Validadas" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[GPSValidation]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[GPSValidation]"
+                      name="GPSValidation" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Descartadas]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Descartadas]"
+                      name="Descartadas" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ClientDuration]"
+                      dataType="date"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ClientDuration]"
+                      name="ClientDuration" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TiempoEntreEncuesta]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TiempoEntreEncuesta]"
+                      name="TiempoEntreEncuesta" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[DuracionMinutos]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[DuracionMinutos]"
+                      name="DuracionMinutos" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[IncidenciaFiltro]"
+                      dataType="r8"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[IncidenciaFiltro]"
+                      name="IncidenciaFiltro" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CuentasClave]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CuentasClave]"
+                      name="CuentasClave" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Encuestas\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Encuestas.Paths[Salida de origen de Excel]"
+              endId="Package\Encuestas\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de Excel"
+              startId="Package\Encuestas\Origen de Excel.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Limpieza"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{10B24900-07EC-4FDC-BA0A-55788C14B3A1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limpieza"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{ECFAF681-736C-4052-81C2-F6F4A9847676}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Encuesta;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A5AFF2A2-F71F-478E-8FC8-16D352271EAF}"
+      DTS:From="Package\Limpieza"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Encuestas" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Encuestas"
+          TopLeft="125,179" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Limpieza"
+          TopLeft="128,14" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="189.75,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,123"
+              Start="0,0"
+              End="0,115.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,115.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Encuestas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Encuestas\Destino de OLE DB"
+          TopLeft="401,239" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Encuestas\Origen de Excel"
+          TopLeft="128,133" />
+        <EdgeLayout
+          Id="Package\Encuestas.Paths[Salida de origen de Excel]"
+          TopLeft="206.5,175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="282,64"
+              Start="0,0"
+              End="282,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="4,32" />
+                  <mssgle:LineSegment
+                    End="278,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="278,32"
+                    Point2="282,32"
+                    Point3="282,36" />
+                  <mssgle:LineSegment
+                    End="282,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Encuestas\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Encuestas\Origen de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
